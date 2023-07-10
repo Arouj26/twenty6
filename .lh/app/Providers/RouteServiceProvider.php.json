@@ -1,0 +1,50 @@
+{
+    "sourceFile": "app/Providers/RouteServiceProvider.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1688990539601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688990633779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n      * Typically, users are redirected here after authentication.\n      *\n      * @var string\n      */\n-    public const HOME = '/admin';\n+    public const HOME = '/dashboard';\n \n     /**\n      * Define your route model bindings, pattern filters, and other route configuration.\n      */\n"
+                },
+                {
+                    "date": 1688990780284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n      * Typically, users are redirected here after authentication.\n      *\n      * @var string\n      */\n-    public const HOME = '/dashboard';\n+    public const HOME = '/admin';\n \n     /**\n      * Define your route model bindings, pattern filters, and other route configuration.\n      */\n"
+                },
+                {
+                    "date": 1688990876405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n      * Typically, users are redirected here after authentication.\n      *\n      * @var string\n      */\n-    public const HOME = '/admin';\n+    public const HOME = '/dashboard';\n \n     /**\n      * Define your route model bindings, pattern filters, and other route configuration.\n      */\n"
+                },
+                {
+                    "date": 1688990909861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n      * Typically, users are redirected here after authentication.\n      *\n      * @var string\n      */\n-    public const HOME = '/dashboard';\n+    public const HOME = '/admin';\n \n     /**\n      * Define your route model bindings, pattern filters, and other route configuration.\n      */\n"
+                },
+                {
+                    "date": 1688990998981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n      * Typically, users are redirected here after authentication.\n      *\n      * @var string\n      */\n-    public const HOME = '/admin';\n+    public const HOME = '/dashboard';\n \n     /**\n      * Define your route model bindings, pattern filters, and other route configuration.\n      */\n"
+                },
+                {
+                    "date": 1689014674484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n      * Typically, users are redirected here after authentication.\n      *\n      * @var string\n      */\n-    public const HOME = '/dashboard';\n+    public const HOME = '/admin';\n \n     /**\n      * Define your route model bindings, pattern filters, and other route configuration.\n      */\n"
+                },
+                {
+                    "date": 1689014954110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n      * Typically, users are redirected here after authentication.\n      *\n      * @var string\n      */\n-    public const HOME = '/admin';\n+    public const HOME = '/admin/login';\n \n     /**\n      * Define your route model bindings, pattern filters, and other route configuration.\n      */\n"
+                },
+                {
+                    "date": 1689014961225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,40 @@\n+<?php\n+\n+namespace App\\Providers;\n+\n+use Illuminate\\Cache\\RateLimiting\\Limit;\n+use Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider as ServiceProvider;\n+use Illuminate\\Http\\Request;\n+use Illuminate\\Support\\Facades\\RateLimiter;\n+use Illuminate\\Support\\Facades\\Route;\n+\n+class RouteServiceProvider extends ServiceProvider\n+{\n+    /**\n+     * The path to your application's \"home\" route.\n+     *\n+     * Typically, users are redirected here after authentication.\n+     *\n+     * @var string\n+     */\n+    public const HOME = '/admin';\n+\n+    /**\n+     * Define your route model bindings, pattern filters, and other route configuration.\n+     */\n+    public function boot(): void\n+    {\n+        RateLimiter::for('api', function (Request $request) {\n+            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());\n+        });\n+\n+        $this->routes(function () {\n+            Route::middleware('api')\n+                ->prefix('api')\n+                ->group(base_path('routes/api.php'));\n+\n+            Route::middleware('web')\n+                ->group(base_path('routes/web.php'));\n+        });\n+    }\n+}\n"
+                }
+            ],
+            "date": 1688990539601,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Providers;\n\nuse Illuminate\\Cache\\RateLimiting\\Limit;\nuse Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider as ServiceProvider;\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Support\\Facades\\RateLimiter;\nuse Illuminate\\Support\\Facades\\Route;\n\nclass RouteServiceProvider extends ServiceProvider\n{\n    /**\n     * The path to your application's \"home\" route.\n     *\n     * Typically, users are redirected here after authentication.\n     *\n     * @var string\n     */\n    public const HOME = '/admin';\n\n    /**\n     * Define your route model bindings, pattern filters, and other route configuration.\n     */\n    public function boot(): void\n    {\n        RateLimiter::for('api', function (Request $request) {\n            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());\n        });\n\n        $this->routes(function () {\n            Route::middleware('api')\n                ->prefix('api')\n                ->group(base_path('routes/api.php'));\n\n            Route::middleware('web')\n                ->group(base_path('routes/web.php'));\n        });\n    }\n}\n"
+        }
+    ]
+}

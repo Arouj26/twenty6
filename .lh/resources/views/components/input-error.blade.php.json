@@ -1,0 +1,22 @@
+{
+    "sourceFile": "resources/views/components/input-error.blade.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1688993185604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688993207081,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n @props(['messages'])\n \n @if ($messages)\n-    <ul {{ $attributes->merge(['class' => 'text-sm alert alert-danger space-y-1']) }}>\n+    <ul {{ $attributes->merge(['class' => 'text-sm text-danger space-y-1']) }}>\n         @foreach ((array) $messages as $message)\n             <li>{{ $message }}</li>\n         @endforeach\n     </ul>\n"
+                }
+            ],
+            "date": 1688993185604,
+            "name": "Commit-0",
+            "content": "@props(['messages'])\n\n@if ($messages)\n    <ul {{ $attributes->merge(['class' => 'text-sm alert alert-danger space-y-1']) }}>\n        @foreach ((array) $messages as $message)\n            <li>{{ $message }}</li>\n        @endforeach\n    </ul>\n@endif\n"
+        }
+    ]
+}

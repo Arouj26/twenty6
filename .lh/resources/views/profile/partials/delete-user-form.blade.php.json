@@ -1,0 +1,18 @@
+{
+    "sourceFile": "resources/views/profile/partials/delete-user-form.blade.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1688995306358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1688995306358,
+            "name": "Commit-0",
+            "content": "{{-- <section class=\"space-y-6\">\n    <header>\n        <h2 class=\"text-lg font-medium text-gray-900\">\n            {{ __('Delete Account') }}\n        </h2>\n\n        <p class=\"mt-1 text-sm text-gray-600\">\n            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}\n        </p>\n    </header>\n\n    <x-danger-button\n        x-data=\"\"\n        x-on:click.prevent=\"$dispatch('open-modal', 'confirm-user-deletion')\"\n    >{{ __('Delete Account') }}</x-danger-button>\n\n    <x-modal name=\"confirm-user-deletion\" :show=\"$errors->userDeletion->isNotEmpty()\" focusable>\n        <form method=\"post\" action=\"{{ route('profile.destroy') }}\" class=\"p-6\">\n            @csrf\n            @method('delete')\n\n            <h2 class=\"text-lg font-medium text-gray-900\">\n                {{ __('Are you sure you want to delete your account?') }}\n            </h2>\n\n            <p class=\"mt-1 text-sm text-gray-600\">\n                {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}\n            </p>\n\n            <div class=\"mt-6\">\n                <x-input-label for=\"password\" value=\"{{ __('Password') }}\" class=\"sr-only\" />\n\n                <x-text-input\n                    id=\"password\"\n                    name=\"password\"\n                    type=\"password\"\n                    class=\"mt-1 block w-3/4\"\n                    placeholder=\"{{ __('Password') }}\"\n                />\n\n                <x-input-error :messages=\"$errors->userDeletion->get('password')\" class=\"mt-2\" />\n            </div>\n\n            <div class=\"mt-6 flex justify-end\">\n                <x-secondary-button x-on:click=\"$dispatch('close')\">\n                    {{ __('Cancel') }}\n                </x-secondary-button>\n\n                <x-danger-button class=\"ml-3\">\n                    {{ __('Delete Account') }}\n                </x-danger-button>\n            </div>\n        </form>\n    </x-modal>\n</section> --}}\n"
+        }
+    ]
+}

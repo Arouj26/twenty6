@@ -182,7 +182,9 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Carbon' => 'Carbon\Carbon',
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
+
 
 ];

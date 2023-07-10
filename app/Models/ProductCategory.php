@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ProductCategory extends Model
 {
     use HasFactory;
-    protected $table="product_category";
-    protected $primaryKey="category_id";
+    public function products(){
+        return $this->belongstoMany(ProductCategory::class,'categoryof_products');
+    }
+
 
 }
